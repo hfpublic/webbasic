@@ -18,7 +18,7 @@ type GRPCClient struct {
 	*grpc.ClientConn
 }
 
-func InitGRPCClient(conf GRPCConfig) {
+func InitGRPCClient(conf *GRPCConfig) {
 	conn, err := grpc.Dial(fmt.Sprintf("%s:%v", conf.Host, conf.Port), grpc.WithInsecure())
 	if err != nil {
 		log.Fatalln("dial error:", err)
